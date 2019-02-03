@@ -1,0 +1,140 @@
+# Webalizer V2.23-08 Incremental Data - 02/01/2019 22:10:16
+2019 2 1 22 10 16
+3 0 3 0 1 3 31083 3 3 0
+3 4 4 1 1
+3 0 31083 3 3 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+3 0 31083 3
+0 0 0 0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+# End Of Table - urls
+# -sites- (monthly)
+194.59.251.216
+0 1 0 10361 1 1549059015
+-
+87.114.67.79
+0 1 0 10361 1 1549059016
+-
+r-53-56-62-5.consumer-pool.prcdn.net
+0 1 0 10361 1 1549059016
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+194.59.251.216
+0 1 0 10361 1 1549059015
+-
+87.114.67.79
+0 1 0 10361 1 1549059016
+-
+r-53-56-62-5.consumer-pool.prcdn.net
+0 1 0 10361 1 1549059016
+-
+# End Of Table - sites (daily)
+# -referrers- 
+https://sistemacolegio.tk/
+0 3
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+0 1
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Sa
+0 1
+Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safa
+0 1
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
