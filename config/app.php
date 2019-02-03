@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://sistemacolegio.tk'),
+    'url' => env('APP_URL', 'http://sistemacolegio.tk.d'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC -5',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
