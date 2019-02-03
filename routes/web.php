@@ -34,3 +34,7 @@ Route::post('/user/update_maestro','usercontroller@update_maestro')->name('user.
 Route::get('/user/{id}/destroy','usercontroller@destroy')->name('user.destroy');
 
 Route::get('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
