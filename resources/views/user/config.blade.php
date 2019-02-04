@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('contenido')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -85,23 +85,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        <!--  <div class="form-group row">
-                            <label for="foto" class="col-md-4 col-form-label text-md-right">{{ __('Sube tu Foto') }}</label>
-
-                            <div class="col-md-10">
-                                <input id="foto" type="file" class="form-control{{ $errors->has('foto') ? ' is-invalid' : '' }}" name="foto" value="{{ auth::user()->foto }}" required>
-
-                                @if ($errors->has('foto'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('foto') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>-->
-
-
-
 
                         <div class="form-group row">
 
