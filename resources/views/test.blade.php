@@ -13,7 +13,6 @@
     esta asistiendo en este momento al curso de
     {{$ciclo->cursoCiclo->nombre}}  estamos en el {{$ciclo->nombre}}
 </p>
-{{$ciclo->notasCiclo->nota1}}
 
 
 <hr>
