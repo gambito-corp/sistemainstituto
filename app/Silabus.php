@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Silabus extends Model
-{
-    //
+class Silabus extends Model {
+
+    protected $table = 'silabus';
+
 }

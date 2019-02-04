@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    Te has logueado Correctamente, deseas ir a <a href="{{route('inicio')}}">Inicio</a>
+                    Te has logueado Correctamente, deseas ir a <a href="{{route('test')}}">testeos</a>
                 </div>
             </div>
         </div>
