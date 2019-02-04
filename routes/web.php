@@ -36,3 +36,18 @@ Route::get('/user/avatar/{filename}', 'usercontroller@getImage')->name('user.ava
 
 
 Route::get('/testeos', 'HomeController@test')->name('test');
+
+
+//RUTAS DE FRONT
+Route::get('/index','HomeController@principal');
+Route::get('/somos','HomeController@quienes')->name('somos');
+Route::get('/mision','HomeController@mision')->name('mision');
+Route::get('/vision','HomeController@vision')->name('vision');
+Route::get('/docentes','HomeController@docentes')->name('docentes');
+Route::get('/suficiencia','HomeController@suficiencia')->name('suficiencia');
+Route::get('/extraordinarios','HomeController@extraordinarios')->name('extraordinarios');
+Route::get('/t_english','HomeController@t_english')->name('t_english');
+Route::get('/videos','HomeController@videos')->name('videos');
+Route::get('/blog','HomeController@blog')->name('blog');
+Route::get('/intranet','HomeController@intranet')->name('intranet');
+Route::get('/contactenos','HomeController@contactenos')->name('contactenos');
