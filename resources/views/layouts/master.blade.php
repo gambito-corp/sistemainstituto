@@ -7,6 +7,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{url('/images/cenglish.jpeg')}}"/>
         <title>@yield('title')</title>
        <link rel="stylesheet" href="{{url('/css/animate.css')}}">
+       <link rel="stylesheet" type="text/css" href="{{url('/css/swiper.min.css')}}">
        <link rel="stylesheet" href="{{url('/font.css')}}">
        <link rel='stylesheet' type='text/css' href="{{url('/css/stylesheet.css')}}">
         <link rel='stylesheet' type='text/css' href="{{url('/css/bootstrap.min.css')}}">
@@ -39,7 +40,7 @@
             <div class="row" id="top">
 
             <nav class="col-12 navbar navbar-expand-md bg-dark navbar-dark fixed-top"><!--fixed-top -->
-  <a href="{{url('/')}}" class="navbar-brand"><img src="{{url('/images/cenglish.jpeg')}}" style="width:30px;"></a>
+  <a href="{{url('/index')}}" class="navbar-brand"><img src="{{url('/images/cenglish.jpeg')}}" style="width:30px;"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
     <span class="navbar-toggler-icon"></span>
@@ -49,8 +50,8 @@
               <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-home"></i> Home</a>
                 <div class="dropdown-menu">
                     
-                    <a href="#" class="dropdown-item">Quienes somos</a>
-                    <a href="#" class="dropdown-item">Misión</a>
+                    <a href="{{url('/somos')}}" class="dropdown-item">Quienes somos</a>
+                    <a href="{{url('/mision')}}" class="dropdown-item">Misión</a>
                     <a href="#" class="dropdown-item">Visión</a>
                     <a href="#" class="dropdown-item">Docentes de Transversales/ Inglés</a>
                 
@@ -243,6 +244,28 @@
             <div id="youtube"><a href="#"  class="fab fa-youtube"></a></div>
             <div id="twitter"><a href="#"  class="fab fa-twitter-square"></a></div>
         </div>
+
+
+
+        <script type="text/javascript" src="{{url('/js/swiper.min.js')}}"></script>
+        <script>
+                var swiper = new Swiper('.swiper-container', {
+                  effect: 'coverflow',
+                  grabCursor: true,
+                  centeredSlides: true,
+                  slidesPerView: 'auto',
+                  coverflowEffect: {
+                    rotate: 50,//60
+                    stretch: 0,
+                    depth: 100,//500
+                    modifier: 1,//5
+                    slideShadows : true,
+                  },
+                  pagination: {
+                    el: '.swiper-pagination',
+                  },
+                });
+              </script>
     </body>
 
 </html>
