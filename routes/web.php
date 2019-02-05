@@ -12,26 +12,29 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('inicio');
+    return view('principal');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/configuracion', 'usercontroller@config')->name('config');
-Route::get('/perfil', 'usercontroller@mostrarperfil')->name('perfil');
-Route::post('/user/update', 'usercontroller@update')->name('user.update');
+Route::get('/configuracion','usercontroller@config')->name('config');
+Route::get('/perfil','usercontroller@mostrarperfil')->name('perfil');
+Route::post('/user/update','usercontroller@update')->name('user.update');
 
 
-Route::post('/user/avatar/{filename}', 'usercontroller@getImage')->name('user.avatar');
+Route::post('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
 
 
-route::get('/user/gestion', 'usercontroller@gestion')->name('user.gestion');
+route::get('/user/gestion','usercontroller@gestion')->name('user.gestion');
 route::get('/user/editar/{id}', 'usercontroller@editar_maestro')->name('user.editar');
-Route::post('/user/update_maestro', 'usercontroller@update_maestro')->name('user.update_maestro');
+Route::post('/user/update_maestro','usercontroller@update_maestro')->name('user.update_maestro');
 
-Route::get('/user/{id}/destroy', 'usercontroller@destroy')->name('user.destroy');
+Route::get('/user/{id}/destroy','usercontroller@destroy')->name('user.destroy');
 
+<<<<<<< HEAD
+Route::get('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
+=======
 Route::get('/user/avatar/{filename}', 'usercontroller@getImage')->name('user.avatar');
 
 
@@ -51,3 +54,4 @@ Route::get('/videos','HomeController@videos')->name('videos');
 Route::get('/blog','HomeController@blog')->name('blog');
 Route::get('/intranet','HomeController@intranet')->name('intranet');
 Route::get('/contactenos','HomeController@contactenos')->name('contactenos');
+>>>>>>> 2e988c5e851290a0d5d18a9e0afd44d23c13b0a0

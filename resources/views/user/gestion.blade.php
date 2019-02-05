@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('title','Gestión de usuarios')
-@section('content')
-
-<link rel="stylesheet"	type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+@section('contenido')
 
 
 <div class="col-md-12 text-center">
@@ -11,6 +9,7 @@
         <table class="table table-bordered" id="miTabla">
 
             <thead>
+            <th class="text-center">Rol</th>
             <th class="text-center">Nombre</th>
             <th class="text-center">Apellido</th>
             <th class="text-center">E-mail</th>
@@ -25,6 +24,7 @@
             <tbody>
                 @forelse($users as $user)
                 <tr>
+                     <td class="text-center">{{$user->role}}</td>
                     <td class="text-center">{{$user->name}}</td>
                     <td class="text-center">{{$user->surname}}</td>
                     <td class="text-center">{{$user->email}}</td>
@@ -55,7 +55,7 @@
 </div>
 
 
-<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
 
 <script>
 $(document).ready(function() {
