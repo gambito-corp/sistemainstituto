@@ -32,9 +32,9 @@ Route::post('/user/update_maestro','usercontroller@update_maestro')->name('user.
 
 Route::get('/user/{id}/destroy','usercontroller@destroy')->name('user.destroy');
 
-<<<<<<< HEAD
+
 Route::get('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
-=======
+
 Route::get('/user/avatar/{filename}', 'usercontroller@getImage')->name('user.avatar');
 
 
@@ -54,4 +54,3 @@ Route::get('/videos','HomeController@videos')->name('videos');
 Route::get('/blog','HomeController@blog')->name('blog');
 Route::get('/intranet','HomeController@intranet')->name('intranet');
 Route::get('/contactenos','HomeController@contactenos')->name('contactenos');
->>>>>>> 2e988c5e851290a0d5d18a9e0afd44d23c13b0a0
