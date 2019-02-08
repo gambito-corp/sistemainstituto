@@ -13,7 +13,10 @@ class Curso extends Model {
     }
 
     public function CarreraCurso() {
-        return $this->belongsTo('App\carrera', 'curso_id');
+        return $this->belongsTo('App\carrera', 'carrera_id');
     }
+     protected $fillable = [
+       'carrera_id','nombre','descripcion',
+    ];
 
 }

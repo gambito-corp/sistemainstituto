@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Carrera;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -12,9 +13,17 @@ class CursoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+    $this->middleware('auth');
+    }
     public function index()
     {
-        //
+        $cursos = curso::all();
+        return view('cursos.index', [
+            'cursos' => $cursos
+        ]);   
     }
 
     /**
@@ -24,7 +33,10 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+         $carreras = carrera::all();
+        return view('cursos.create', [
+            'carreras' => $carreras
+        ]);
     }
 
     /**
@@ -35,7 +47,21 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+         'carrera_id' => 'required|int',
+         'nombre' => 'required|string|max:50',
+         'descripcion' => 'required|string|max:255',
+
+       ]);
+
+       $cursos=curso::create($request->all());
+
+        if($cursos)
+        {
+        return redirect()->route('Cursos.index')->with(['message'=>'Curso agregado correctamente']);
+        }else {
+        return redirect()->route('Cursos.index')->with(['message'=>'Ocurrio un problema al guardar el Curso']);
+       }
     }
 
     /**
@@ -55,9 +81,11 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $carreras = carrera::all();
+        $cursos = curso::find($id);
+            return view('Cursos.edit',['cursos' => $cursos, 'carreras' => $carreras ]);
     }
 
     /**
@@ -78,8 +106,16 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
-        //
+         $cursos =curso::find($id);
+         if($cursos)
+            {
+            $cursos->delete();
+            return redirect()-> route('Cursos.index')->with(['message'=>'Curso eliminado correctamente']);
+            }
+            else{
+            return redirect()-> route('Cursos.index')->with(['message'=>'Ocurrio un error al eliminar el Curso']);
+            }
     }
 }

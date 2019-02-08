@@ -61,6 +61,18 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'silabus' => [
+            'driver' => 'local',
+            'root' => storage_path('app/silabus'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'documentos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/docuemtos'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
          'images' => [
             'driver' => 'local',
             'root' => storage_path('app/images'),

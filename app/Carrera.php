@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Carrera extends Model {
@@ -15,5 +16,8 @@ class Carrera extends Model {
     public function cicloCarrera() {
         return $this->hasMany('App\ciclo');
     }
-
+  
+    protected $fillable = [
+       'nombre',
+    ];
 }

@@ -12,9 +12,16 @@ class PeriodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+      public function __construct()
+    {
+    $this->middleware('auth');
+    }
     public function index()
     {
-        //
+          $periodos = periodo::all();
+        return view('periodos.index', [
+            'periodos' => $periodos
+        ]);    
     }
 
     /**
@@ -24,7 +31,8 @@ class PeriodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('periodos.create');
+
     }
 
     /**
@@ -35,7 +43,21 @@ class PeriodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+        'nombre' => 'required|string|max:30',
+        'fecha_inicio' => 'required|date',
+        'fechafinal' => 'required|date',
+
+       ]);
+
+       $periodo=periodo::create($request->all());
+
+        if($periodo)
+        {
+        return redirect()->route('Periodos.index')->with(['message'=>'Periodo agregado correctamente']);
+        }else {
+        return redirect()->route('Periodos.index')->with(['message'=>'Ocurrio un problema al guardar el Periodo']);
+       }
     }
 
     /**
@@ -55,9 +77,12 @@ class PeriodoController extends Controller
      * @param  \App\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Periodo $periodo)
+      public function edit($id)
     {
-        //
+         $periodo = periodo::find($id);
+            return view('Periodos.edit',[
+                'periodo' => $periodo
+            ]);
     }
 
     /**
@@ -78,8 +103,16 @@ class PeriodoController extends Controller
      * @param  \App\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Periodo $periodo)
+    public function destroy($id)
     {
-        //
+        $periodo =periodo::find($id);
+         if($periodo)
+            {
+            $periodo->delete();
+            return redirect()-> route('Periodos.index')->with(['message'=>'Periodo eliminado correctamente']);
+            }
+            else{
+            return redirect()-> route('Periodos.index')->with(['message'=>'Ocurrio un error al eliminar el Perido']);
+            }
     }
 }

@@ -9,14 +9,15 @@ Use Faker\Provider\Image;
 Use Illuminate\Support\Facades\Storage;
 use App\User;
 use Auth;
+
 class usercontroller extends Controller
 {
     
     //mostrar paginas a usuarios registrados
-     public function __construc()
-     {
-        $this->middleware('auth');
-     }   
+     public function __construct()
+    {
+    $this->middleware('auth');
+    }
      //
     public function gestion(){
         $users = User::all();

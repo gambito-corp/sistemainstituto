@@ -18,6 +18,12 @@
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -129,33 +135,35 @@
                 <li> <a class="dropdown-item" href="{{route('config')}}"><i class="fa fa-circle-o"></i>Actualizar Perfil</a></li>
               </ul>
             </li>
-            
-            <li class="treeview">
+
+              <li class="treeview">
               <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Cursos</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-shopping-cart"></i>
-                <span>Carreras</span>
-                 <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-laptop"></i>
+                <span>Actualizar</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i>Ciclos</a></li>
+                <li> <a class="dropdown-item" href="{{route('Cursos.index')}}"><i class="fa fa-circle-o"></i>Cursos</a></li>
+                <li> <a class="dropdown-item" href="{{route('Carreras.index')}}"><i class="fa fa-circle-o"></i>Carreras</a></li>
+                <li> <a class="dropdown-item" href="{{route('Periodos.index')}}"><i class="fa fa-circle-o"></i>Periodos</a></li>
               </ul>
             </li>
-                       
-            <li class="treeview">
+
+              <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Eventos</span>
+                <i class="fa fa-laptop"></i>
+                <span>Subir Documentos</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> asdfsdg</a></li>
-                
+                <li> <a class="dropdown-item" href="{{route('Silabus.index')}}"><i class="fa fa-circle-o"></i>Silabus</a></li>
+                <li> <a class="dropdown-item" href="{{route('Documentos.index')}}"><i class="fa fa-circle-o"></i>Documentos</a></li>
               </ul>
+            </li>                           
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Periodos</span>
+              </a>
             </li>
              <li>
               <a href="#">
@@ -231,6 +239,9 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+
+
+
     
   </body>
 </html>

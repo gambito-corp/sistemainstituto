@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Carrera;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 class CarreraController extends Controller
 {
@@ -12,19 +14,26 @@ class CarreraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+        public function __construc()
+     {
+        $this->middleware('auth');
+     }   
     public function index()
     {
-        //
-    }
+             $carreras = carrera::all();
+        return view('carreras.index', [
+            'carreras' => $carreras
+        ]);    }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('carreras.create');
     }
 
     /**
@@ -35,7 +44,19 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+         'nombre' => 'required|string|max:30',
+
+       ]);
+
+       $create=carrera::create($request->all());
+
+        if($create)
+        {
+        return redirect()->route('Carreras.index')->with(['message'=>'Carrera agregado correctamente']);
+        }else {
+        return redirect()->route('Carreras.index')->with(['message'=>'Ocurrio un problema al guardar la carrera']);
+       }
     }
 
     /**
@@ -55,9 +76,12 @@ class CarreraController extends Controller
      * @param  \App\Carrera  $carrera
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carrera $carrera)
+    public function edit($id)
     {
-        //
+         $carrera = carrera::find($id);
+            return view('carreras.edit',[
+                'carrera' => $carrera
+            ]);
     }
 
     /**
@@ -69,7 +93,19 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        //
+      $request->validate([
+         'nombre' => 'required|string|max:30',
+
+       ]);
+
+       $update=carrera::update($request->all());
+
+        if($update)
+        {
+        return redirect()->route('Carreras.index')->with(['message'=>'Carrera Actualizado correctamente']);
+        }else {
+        return redirect()->route('Carreras.index')->with(['message'=>'Ocurrio un problema al Actualizar la carrera']);
+       }
     }
 
     /**
@@ -78,8 +114,16 @@ class CarreraController extends Controller
      * @param  \App\Carrera  $carrera
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carrera $carrera)
+    public function destroy($id)
     {
-        //
+        $Carrera =Carrera::find($id);
+         if($Carrera)
+            {
+            $Carrera->delete();
+            return redirect()-> route('Carreras.index')->with(['message'=>'Carrera eliminado correctamente']);
+            }
+            else{
+            return redirect()-> route('Carreras.index')->with(['message'=>'Ocurrio un error al eliminar la carrera']);
+            }
     }
 }
