@@ -19,5 +19,8 @@ class Ciclo extends Model {
     public function carreraCiclo() {
         return $this->belongsTo('App\carrera', 'carrera_id');
     }
+     protected $fillable = [
+       'user_id','carrera_id','curso_id','nombre'
+    ];
 
 }

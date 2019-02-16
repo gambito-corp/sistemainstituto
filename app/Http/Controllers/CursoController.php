@@ -95,9 +95,30 @@ class CursoController extends Controller
      * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request,$id)
     {
-        //
+          $request->validate([
+          'carrera_id' => 'required|int',
+         'nombre' => 'required|string|max:50',
+         'descripcion' => 'required|string|max:255',
+
+       ]);
+        $carrera_id = $request->input('carrera_id');
+        $nombre = $request->input('nombre');
+        $descripcion = $request->input('descripcion');
+
+          $curso =curso::find($id);
+        $curso->carrera_id = $carrera_id;
+        $curso->nombre = $nombre;
+        $curso->descripcion = $descripcion;
+        $update=$curso->update();
+
+        if($update)
+        {
+        return redirect()->route('Cursos.index')->with(['message'=>'Curso Actualizado correctamente']);
+        }else {
+        return redirect()->route('Cursos.index')->with(['message'=>'Ocurrio un problema al Actualizar el curso']);
+       }
     }
 
     /**

@@ -92,9 +92,30 @@ class PeriodoController extends Controller
      * @param  \App\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Periodo $periodo)
+    public function update(Request $request,$id)
     {
-        //
+         $request->validate([
+        'nombre' => 'required|string|max:30',
+        'fecha_inicio' => 'required|date',
+        'fechafinal' => 'required|date',
+
+       ]);
+        $nombre = $request->input('nombre');
+        $fecha_inicio = $request->input('fecha_inicio');
+        $fechafinal = $request->input('fechafinal');
+
+        $periodo =periodo::find($id);
+        $periodo->nombre = $nombre;
+        $periodo->fecha_inicio = $fecha_inicio;
+        $periodo->fechafinal = $fechafinal;
+        $update=$periodo->update();
+
+        if($update)
+        {
+        return redirect()->route('Periodos.index')->with(['message'=>'Periodo Actualizado correctamente']);
+        }else {
+        return redirect()->route('Periodos.index')->with(['message'=>'Ocurrio un problema al Actualizar el Periodo']);
+       }
     }
 
     /**

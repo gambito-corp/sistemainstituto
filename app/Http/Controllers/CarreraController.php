@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Auth;
 
 class CarreraController extends Controller
 {
@@ -91,14 +91,17 @@ class CarreraController extends Controller
      * @param  \App\Carrera  $carrera
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carrera $carrera)
+    public function update(Request $request,$id)
     {
-      $request->validate([
-         'nombre' => 'required|string|max:30',
+     
+        $request->validate([
+        'nombre' => 'required|string|max:30',
 
        ]);
-
-       $update=carrera::update($request->all());
+         $nombre = $request->input('nombre');
+          $Carrera =Carrera::find($id);
+        $Carrera->nombre = $nombre;
+        $update=$Carrera->update();
 
         if($update)
         {

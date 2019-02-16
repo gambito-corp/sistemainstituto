@@ -37,10 +37,10 @@
                         </div>
 
                          <div class="form-group row">
-                        <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Descripcion del Curso') }}</label>
+                        <label for="descripcion" class="col-md-4 col-form-label text-md-right">{{ __('Descripcion del Curso') }}</label>
 
                             <div class="col-md-8">
-                                <textarea id="nombre" type="text" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}" name="nombre" >{{ $cursos->descripcion}}</textarea>
+                                <textarea id="descripcion" type="text" class="form-control{{ $errors->has('descripcion') ? ' is-invalid' : '' }}" name="descripcion" >{{ $cursos->descripcion}}</textarea>
                             </div>
 
                         </div>

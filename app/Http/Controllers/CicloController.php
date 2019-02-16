@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Ciclo;
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
+use App\Carrera;
+use App\Curso;
+use Illuminate\Support\Facades\DB;
 
 class CicloController extends Controller
 {
@@ -20,7 +25,16 @@ class CicloController extends Controller
      
     public function index()
     {
-        //
+          $id = \Auth::user()->id;
+          $ciclos =DB::table('ciclos')
+          ->join('users','ciclos.user_id','=','users.id')
+          ->join('carreras','ciclos.carrera_id','=','carreras.id')
+          ->join('cursos','ciclos.curso_id','=','cursos.id')
+          ->select('ciclos.nombre as ciclonombre','ciclos.user_id as id','carreras.nombre as carreranombre','cursos.nombre as cursonombre')
+          ->where('ciclos.user_id','=',$id)
+          ->get();
+      
+        return view('ciclos.index', ['ciclos' => $ciclos]);    
     }
 
     /**
@@ -30,7 +44,11 @@ class CicloController extends Controller
      */
     public function create()
     {
-        //
+        $carreras = carrera::all();
+        $cursos = curso::all();
+        return view('ciclos.create', [
+            'carreras' => $carreras, 'cursos' => $cursos
+        ]);
     }
 
     /**
@@ -41,7 +59,21 @@ class CicloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $request->validate([
+            'user_id' => 'required|int',
+         'carrera_id' => 'required|int',
+          'curso_id' => 'required|int',
+         'nombre' => 'required|string|max:20',
+       ]);
+
+       $ciclos=ciclo::create($request->all());
+
+        if($ciclos)
+        {
+        return redirect()->route('Ciclos.index')->with(['message'=>'Ciclo agregado correctamente']);
+        }else {
+        return redirect()->route('Ciclos.index')->with(['message'=>'Ocurrio un problema al guardar el Ciclo']);
+       }
     }
 
     /**

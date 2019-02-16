@@ -64,9 +64,9 @@ class usercontroller extends Controller
         if($foto)
         {
 //Poner nombre unico
-            $foto_full = time().$foto->getClientOriginalName();
+        $foto_full = time().$foto->getClientOriginalName();
 //Guardar la foto en la carpeta (storage/app/users)
-            Storage::disk('users')->put($foto_full, File::get($foto));
+        Storage::disk('users')->put($foto_full, File::get($foto));
 //seteo el nombre del objeto
         $user->foto = $foto_full ;
         }
