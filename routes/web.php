@@ -53,6 +53,8 @@ Route::resource('Cursos','CursoController');
 Route::resource('Silabus','SilabusController');
 //crud de Documentos
 Route::resource('Documentos','DocumentoController');
+//crud de ciclos
+Route::resource('Ciclos','CicloController');
 //RUTAS DE FRONT
 
 
@@ -68,4 +70,3 @@ Route::get('/videos','HomeController@videos')->name('videos');
 Route::get('/blog','HomeController@blog')->name('blog');
 Route::get('/intranet','HomeController@intranet')->name('intranet');
 Route::get('/contactenos','HomeController@contactenos')->name('contactenos');
-

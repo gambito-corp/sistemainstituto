@@ -23,4 +23,9 @@ class Ciclo extends Model {
        'user_id','carrera_id','curso_id','nombre'
     ];
 
+    protected $events=[
+
+    'created'=> Event::class,    
+    ];
+
 }

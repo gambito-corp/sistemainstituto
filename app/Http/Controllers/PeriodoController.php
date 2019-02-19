@@ -52,12 +52,7 @@ class PeriodoController extends Controller
 
        $periodo=periodo::create($request->all());
 
-        if($periodo)
-        {
-        return redirect()->route('Periodos.index')->with(['message'=>'Periodo agregado correctamente']);
-        }else {
-        return redirect()->route('Periodos.index')->with(['message'=>'Ocurrio un problema al guardar el Periodo']);
-       }
+      
     }
 
     /**
