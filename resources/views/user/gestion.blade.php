@@ -1,14 +1,15 @@
 @extends('layouts.app')
-
-@section('title','Gestión de usuarios')
 @section('contenido')
 
-
-<div class="col-md-12 text-center">
-    <div class="panel-body">
-        <table class="table table-bordered" id="miTabla">
-
-            <thead>
+<div class="card shadow mb-4">
+            <div class="card-header py-3">
+            
+            </div>
+            <div class="card-body">
+                
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
             <th class="text-center">Rol</th>
             <th class="text-center">Nombre</th>
             <th class="text-center">Apellido</th>
@@ -53,14 +54,4 @@
         @endif
     </div>
 </div>
-
-
-
-
-<script>
-$(document).ready(function() {
-    $('#miTabla').DataTable();
-});
-</script>
-
 @endsection

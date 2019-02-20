@@ -30,10 +30,10 @@ class CicloController extends Controller
           ->join('users','ciclos.user_id','=','users.id')
           ->join('carreras','ciclos.carrera_id','=','carreras.id')
           ->join('cursos','ciclos.curso_id','=','cursos.id')
-          ->select('ciclos.nombre as ciclonombre','ciclos.user_id as id','carreras.nombre as carreranombre','cursos.nombre as cursonombre')
+          ->select('ciclos.nombre as ciclonombre','ciclos.id as id','carreras.nombre as carreranombre','cursos.nombre as cursonombre')
           ->where('ciclos.user_id','=',$id)
           ->get();
-      
+   
         return view('ciclos.index', ['ciclos' => $ciclos]);    
     }
 
@@ -116,8 +116,16 @@ class CicloController extends Controller
      * @param  \App\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ciclo $ciclo)
+    public function destroy($id)
     {
-        //
+        $ciclo =ciclo::find($id);
+         if($ciclo)
+            {
+            $ciclo->delete();
+            return redirect()-> route('Ciclos.index')->with(['message'=>'Ciclo eliminado correctamente']);
+            }
+            else{
+            return redirect()-> route('Ciclos.index')->with(['message'=>'Ocurrio un error al eliminar el Ciclo']);
+            }
     }
 }

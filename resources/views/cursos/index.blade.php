@@ -5,7 +5,7 @@
       <a href="{{ route('Cursos.create') }}" class="btn btn-info mb-3">Agregar Curso</a>
     <div class="panel-body">
 
-        <table class="table table-bordered" id="miTabla">
+        <table class="table table-bordered" id="dataTable">
 
             <thead>
             <th class="text-center">ID</th>

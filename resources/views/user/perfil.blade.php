@@ -42,7 +42,6 @@
                           <div class="form-group row">
                           @if(Auth::user()->foto)
                           <img src="{{Route('user.avatar', ['filename'=>$user->foto])}}"/>
-                          <img src="{{asset('img/hola.jpg')}}"/>
                           @else
                           <h2>no pasa nada</h2>
                           @endif

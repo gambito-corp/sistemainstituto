@@ -97,6 +97,7 @@ class usercontroller extends Controller
         public function mostrarperfil()
         {
             return view('user.perfil', array('user'=>Auth::user()));
+            return view('layouts.app', array('user'=>Auth::user()));
         }
         
         public function update_maestro(Request $request){

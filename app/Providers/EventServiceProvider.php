@@ -51,9 +51,11 @@ class EventServiceProvider extends ServiceProvider
 
           $hoy = date("Y-m-d");;
           $periodos = periodo::all();
+        
+
+          
           $periodo = 1;
-          var_dump($hoy);
-          die();
+        
 
 
             nota::create(

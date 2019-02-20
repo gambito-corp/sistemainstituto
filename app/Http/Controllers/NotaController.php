@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Nota;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Auth;
+use App\User;
+use App\Carrera;
+use App\Curso;
+use App\Ciclo;
+use App\Periodo;
 class NotaController extends Controller
 {
     /**
@@ -16,9 +22,12 @@ class NotaController extends Controller
     {
     $this->middleware('auth');
     }
-    public function index()
+    public function index($id)
     {
-        //
+          $notas =DB::table('notas')
+          ->where('notas.ciclo_id','=',$id)
+          ->get();
+        return view('notas.index', ['notas' => $notas]);
     }
 
     /**
@@ -26,64 +35,5 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Nota  $nota
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Nota $nota)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Nota  $nota
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Nota $nota)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Nota  $nota
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Nota $nota)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Nota  $nota
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Nota $nota)
-    {
-        //
-    }
+  
 }

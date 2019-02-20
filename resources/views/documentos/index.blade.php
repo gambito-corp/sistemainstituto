@@ -6,7 +6,7 @@
       <a href="{{ route('Documentos.create') }}" class="btn btn-info mb-3">Agregar Documentos</a>
     <div class="panel-body">
 
-        <table class="table table-bordered" id="miTabla">
+        <table class="table table-bordered" id="dataTable">
 
             <thead>
             <th class="text-center">ID</th>

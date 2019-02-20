@@ -55,6 +55,10 @@ Route::resource('Silabus','SilabusController');
 Route::resource('Documentos','DocumentoController');
 //crud de ciclos
 Route::resource('Ciclos','CicloController');
+//crud de ciclos
+//mostrar Asistencia
+Route::get('Notas/{id}/index','NotaController@index')->name('notas.index');
+
 //RUTAS DE FRONT
 
 
