@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('AGREGAR EL DOCUMENTO') }}</div>
                 <br>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('Documentos.store') }}" >
+                    <form method="POST" action="{{ route('Documentos.store') }}" enctype="multipart/form-data" >
                         @csrf
                         
                         <div class="form-group row">

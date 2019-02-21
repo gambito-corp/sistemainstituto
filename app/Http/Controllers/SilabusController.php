@@ -10,6 +10,10 @@ use App\Periodo;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\File;
 Use Illuminate\Support\Facades\Storage;
+Use Illuminate\Http\Response;
+Use Faker\Provider\Image;
+use App\User;
+use Auth;
 
 class SilabusController extends Controller
 {
@@ -22,12 +26,24 @@ class SilabusController extends Controller
     {
     $this->middleware('auth');
     }
-     
+
+    public function mostrar($id)
+    {
+        $silabus = silabus::where('ciclo_id','=',$id)
+          ->get();
+          foreach ($silabus as $silabu ) {
+         $doc=$silabu->archivo;
+          }
+
+        return view('silabus.mostrar',['doc' => $doc]);   
+
+    }
+
     public function index()
     {
         $silabus = silabus::all();
         return view('silabus.index', [
-            'silabus' => $silabus
+            'silabus' => $.
         ]);    
     }
 
@@ -61,16 +77,23 @@ class SilabusController extends Controller
          'nombre' => 'required|string|max:50',
        ]);
         // Subir la imagen
-        $foto = $request-> file('archivo');
-        if($foto)
+        $archivo = $request-> file('archivo');
+
+        if($archivo)
         {
         //Poner nombre unico
-            $foto_full = time().$foto->getClientOriginalName();
+            $archivo_full = time().$archivo->getClientOriginalName();
         //Guardar la foto en la carpeta (storage/app/users)
-            Storage::disk('silabus')->put($foto_full, File::get($foto));
+            Storage::disk('silabus')->put($archivo_full, File::get($archivo));
         }
-        
-       $silabus=silabus::create($request->all());
+       $silabus=silabus::create([
+            'carrera_id' => $request->input('carrera_id'),
+            'curso_id' => $request->input('curso_id'),
+            'ciclo_id' => $request->input('ciclo_id'),
+            'periodo_id' => $request->input('periodo_id'),
+            'nombre' => $request->input('nombre'),
+            'archivo' => $archivo_full
+        ]);
 
         if($silabus)
         {

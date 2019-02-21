@@ -2,7 +2,7 @@
 @section('contenido')
   <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">AGREGA TU CICLO </h6>
+              <h6 class="m-0 font-weight-bold text-primary">AGREGA TU CICLO</h6>
             </div>
             <div class="card-body">
                  <a href="{{ route('Ciclos.create') }}" class="btn btn-info mb-3">Agregar Ciclo</a>
@@ -13,6 +13,7 @@
             <th class="text-center">Curso</th>
             <th class="text-center">Ciclo</th>
             <th class="text-center">Notas</th>
+            <th class="text-center">Silabus</th>
             <th class="text-center">Editar</th>
             <th class="text-center">Eliminar</th>
             </thead>
@@ -23,6 +24,7 @@
                     <td class="text-center">{{ $ciclo->cursonombre }}</td>
                     <td class="text-center">{{ $ciclo->ciclonombre }}</td>
                     <td class="text-center"><a href="{{ route('notas.index', $ciclo->id) }}"><i class="fas fa-pencil-alt fa-fw"></i></a></td>
+                    <td class="text-center"><a href="{{ route('silabus.mostrar', $ciclo->id) }}"><i class="fas fa-pencil-alt fa-fw"></i></a></td>
                     <td class="text-center"><a href="{{ route('Ciclos.edit', $ciclo->id) }}" class="btn btn-success">Editar</a></td>
                     
                     <td class="text-center"><form action="{{ route('Ciclos.destroy', $ciclo->id) }}" method="POST">
@@ -43,5 +45,6 @@
         </div>
         @endif
     </div>
+</div>
 </div>
 @endsection

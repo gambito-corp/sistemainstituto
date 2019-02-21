@@ -17,12 +17,25 @@ class CicloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
     $this->middleware('auth');
     }
-     
+    public function restringir()
+    {
+        /*$id = \Auth::user()->id;
+        $carreras = carrera::all();
+
+        $carreras = carrera::where('nombre', '=', 'administracion')->get();
+        foreach( $carreras as $carrera ) {
+        $idcarrera=$carrera->id;
+        }
+        echo $idcarrera;
+
+        $ciclos =DB::table('ciclos')
+        ->where('ciclos.carrera_id','=',$id)
+        ->get();*/
+    } 
     public function index()
     {
           $id = \Auth::user()->id;
@@ -33,6 +46,7 @@ class CicloController extends Controller
           ->select('ciclos.nombre as ciclonombre','ciclos.id as id','carreras.nombre as carreranombre','cursos.nombre as cursonombre')
           ->where('ciclos.user_id','=',$id)
           ->get();
+       
    
         return view('ciclos.index', ['ciclos' => $ciclos]);    
     }
@@ -75,7 +89,6 @@ class CicloController extends Controller
         return redirect()->route('Ciclos.index')->with(['message'=>'Ocurrio un problema al guardar el Ciclo']);
        }
     }
-
     /**
      * Display the specified resource.
      *
@@ -109,7 +122,6 @@ class CicloController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

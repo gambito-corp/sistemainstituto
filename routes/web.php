@@ -51,11 +51,11 @@ Route::resource('Periodos','PeriodoController');
 Route::resource('Cursos','CursoController');
 //crud de Silabus
 Route::resource('Silabus','SilabusController');
+Route::get('/Silabus/{id}/mostrar','SilabusController@mostrar')->name('silabus.mostrar');
 //crud de Documentos
 Route::resource('Documentos','DocumentoController');
 //crud de ciclos
 Route::resource('Ciclos','CicloController');
-//crud de ciclos
 //mostrar Asistencia
 Route::get('Notas/{id}/index','NotaController@index')->name('notas.index');
 

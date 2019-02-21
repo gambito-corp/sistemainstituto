@@ -95,12 +95,31 @@
           <i class="fas fa-fw fa-chart-area"></i>
           <span>CICLOS</span></a>
       </li>
-
+         <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>ASISTENCIA</span></a>
+      </li>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>SILABUS</span></a>
+      </li>
+
+       <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>DOCUMENTOS</span></a>
+      </li>
+
+        <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>CALENDARIO</span></a>
       </li>
 
       <!-- Divider -->

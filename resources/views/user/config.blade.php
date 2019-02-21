@@ -103,7 +103,6 @@
                         </div>
                         <div class="form-group row">
                             @if(Auth::user()->foto)
-
                             <img src="{{route('user.avatar',['filename'=>auth::user()->foto])}}" alt="">
                             @endif
                         </div>

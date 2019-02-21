@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('AGREGAR EL SILABUS') }}</div>
                 <br>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('Silabus.store') }}" >
+                    <form method="POST" action="{{ route('Silabus.store') }}" enctype="multipart/form-data" >
                         @csrf
                         
                         <div class="form-group row">
@@ -91,7 +91,7 @@
                         </div>
 
                            <div class="form-group row">
-                            <label for="archivo" class="col-md-4 col-form-label text-md-right">{{ __('SUbe tu archivo') }}</label>
+                            <label for="archivo" class="col-md-4 col-form-label text-md-right">{{ __('Sube tu archivo') }}</label>
 
                             <div class="col-md-8">
                                 <input id="archivo" type="file" class="form-control{{ $errors->has('archivo') ? ' is-invalid' : '' }}" name="archivo">
