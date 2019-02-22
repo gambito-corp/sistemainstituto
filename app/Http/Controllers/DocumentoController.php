@@ -21,7 +21,11 @@ class DocumentoController extends Controller
     {
     $this->middleware('auth');
     }
-     
+    public function mostrar()
+    {
+          
+    }
+
     public function index()
     {
          $documentos = Documento::all();
@@ -58,16 +62,23 @@ class DocumentoController extends Controller
          'nombre' => 'required|string|max:50',
        ]);
         // Subir la imagen
-        $foto = $request-> file('archivo');
-        if($foto)
+        $archivo = $request-> file('archivo');
+        if($archivo)
         {
         //Poner nombre unico
-            $foto_full = time().$foto->getClientOriginalName();
+            $archivo_full = time().$archivo->getClientOriginalName();
         //Guardar la foto en la carpeta (storage/app/users)
-            Storage::disk('documentos')->put($foto_full, File::get($foto));
+            Storage::disk('documentos')->put($archivo_full, File::get($archivo));
         }
-        
-       $documento=documento::create($request->all());
+
+       $documento=documento::create([
+            'carrera_id' => $request->input('carrera_id'),
+            'curso_id' => $request->input('curso_id'),
+            'ciclo_id' => $request->input('ciclo_id'),
+            'nombre' => $request->input('nombre'),
+            'archivo' => $archivo_full
+
+       ]);
 
         if($documento)
         {

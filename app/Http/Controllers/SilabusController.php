@@ -31,19 +31,18 @@ class SilabusController extends Controller
     {
         $silabus = silabus::where('ciclo_id','=',$id)
           ->get();
-          foreach ($silabus as $silabu ) {
+          foreach ($silabus as $silabu) {
          $doc=$silabu->archivo;
           }
 
         return view('silabus.mostrar',['doc' => $doc]);   
-
     }
 
     public function index()
     {
         $silabus = silabus::all();
         return view('silabus.index', [
-            'silabus' => $.
+            'silabus' => $silabus
         ]);    
     }
 

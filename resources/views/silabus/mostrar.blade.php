@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('contenido')
-<iframe width="400" height="400" src="{{asset('storage/doc')}}" frameborder="0"></iframe>
+<iframe width=100% height=100% src="{{ asset("storage/silabus/$doc")}}" ></iframe>
 @endsection

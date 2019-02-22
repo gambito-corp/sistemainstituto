@@ -104,9 +104,6 @@
                             <img src="{{route('user.avatar',['filename'=>$user->foto])}}" alt="">
                             @endif
                         </div>
-
-
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
                                 <button type="submit" class="btn btn-primary">

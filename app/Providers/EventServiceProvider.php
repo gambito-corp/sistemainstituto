@@ -20,7 +20,6 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\EventListener',
         ],
     ];
-
     /**
      * Register any events for your application.
      *
@@ -50,13 +49,8 @@ class EventServiceProvider extends ServiceProvider
            $estado_periodo = 1;
 
           $hoy = date("Y-m-d");;
-          $periodos = periodo::all();
-        
-
-          
+          $periodos = periodo::all();         
           $periodo = 1;
-        
-
 
             nota::create(
             ['carrera_id' => $carrera_id,

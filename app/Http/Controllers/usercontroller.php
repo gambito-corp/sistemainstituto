@@ -58,7 +58,6 @@ class usercontroller extends Controller
         $user->email = $email;
         $user->nick = $nick;
         $user->dni = $dni;
-
 // Subir la imagen
         $foto = $request-> file('foto');
         if($foto)

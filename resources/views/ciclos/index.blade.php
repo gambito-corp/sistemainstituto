@@ -26,8 +26,7 @@
                     <td class="text-center"><a href="{{ route('notas.index', $ciclo->id) }}"><i class="fas fa-pencil-alt fa-fw"></i></a></td>
                     <td class="text-center"><a href="{{ route('silabus.mostrar', $ciclo->id) }}"><i class="fas fa-pencil-alt fa-fw"></i></a></td>
                     <td class="text-center"><a href="{{ route('Ciclos.edit', $ciclo->id) }}" class="btn btn-success">Editar</a></td>
-                    
-                    <td class="text-center"><form action="{{ route('Ciclos.destroy', $ciclo->id) }}" method="POST">
+                <td class="text-center"><form action="{{ route('Ciclos.destroy', $ciclo->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger">eliminar</button>

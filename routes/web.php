@@ -19,30 +19,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//estas no me deja entran sale error
-Route::get('/configuracion','usercontroller@config')->name('config');
-Route::get('/perfil','usercontroller@mostrarperfil')->name('perfil');
 
-//estas si me deja entrar 
-Route::post('/user/update','usercontroller@update')->name('user.update');
-Route::post('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
-route::get('/user/gestion','usercontroller@gestion')->name('user.gestion');
+
 route::get('/user/editar/{id}', 'usercontroller@editar_maestro')->name('user.editar');
 Route::post('/user/update_maestro','usercontroller@update_maestro')->name('user.update_maestro');
+
+
+
+
+Route::post('/user/update','usercontroller@update')->name('user.update');
+route::get('/user/gestion','usercontroller@gestion')->name('user.gestion');
+Route::post('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
+Route::get('/configuracion','usercontroller@config')->name('config');
+Route::get('/perfil','usercontroller@mostrarperfil')->name('perfil');
 Route::get('/user/{id}/destroy','usercontroller@destroy')->name('user.destroy');
-
-
-
 Route::get('/user/avatar/{filename}','usercontroller@getImage')->name('user.avatar');
-
 Route::get('/user/avatar/{filename}', 'usercontroller@getImage')->name('user.avatar');
-
-
-
-
-
 Route::get('/testeos', 'HomeController@test')->name('test');
-
 //crud de Carreras
 Route::resource('Carreras','CarreraController');
 //crud de Periodos
@@ -56,12 +49,18 @@ Route::get('/Silabus/{id}/mostrar','SilabusController@mostrar')->name('silabus.m
 Route::resource('Documentos','DocumentoController');
 //crud de ciclos
 Route::resource('Ciclos','CicloController');
-//mostrar Asistencia
+//crud Notas
 Route::get('Notas/{id}/index','NotaController@index')->name('notas.index');
+Route::get('Notas/{id}/nota-alumno','NotaController@notasid')->name('notas.nota-alumno');
+Route::get('Notas/editar','NotaController@mostrarnotas')->name('notas.editar');
+Route::post('Notas/nota-alumno','NotaController@editarnotas')->name('notas.editarnota');
+
+
+
+
+
 
 //RUTAS DE FRONT
-
-
 Route::get('/index','HomeController@principal');
 Route::get('/somos','HomeController@quienes')->name('somos');
 Route::get('/mision','HomeController@mision')->name('mision');

@@ -17,11 +17,8 @@
  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
    <link href="{{asset('vendor1/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
 </head>
-
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -51,12 +48,9 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Actualiza</h6>
             <a href="{{ route('user.gestion') }}"><i class="fa fa-circle-o"></i>Gestion</a>
-   
           </div>
         </div>
       </li>
-
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -68,10 +62,10 @@
             <h6 class="collapse-header">Actualiza</h6>
              <a class="dropdown-item" href="{{route('perfil')}}"><i class="fa fa-circle-o"></i>Mi Perfil</a>
              <a class="dropdown-item" href="{{route('config')}}"><i class="fa fa-circle-o"></i>Actualizar Perfil</a>
+             <a class="dropdown-item" href="{{route('notas.editar')}}"><i class="fa fa-circle-o"></i>Alumnos</a>
           </div>
         </div>
       </li>
-
       <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -101,27 +95,18 @@
           <i class="fas fa-fw fa-table"></i>
           <span>ASISTENCIA</span></a>
       </li>
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>SILABUS</span></a>
-      </li>
-
        <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>DOCUMENTOS</span></a>
       </li>
-
         <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>CALENDARIO</span></a>
       </li>
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -132,7 +117,6 @@
 
     </ul>
     <!-- End of Sidebar -->
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -185,8 +169,11 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }} </span>
-
-                <img class="img-profile rounded-circle" src="">
+               @if(Auth::user()->foto)
+              <img class="img-profile rounded-circle" src="{{ asset('storage/users/'.Auth::user()->foto)}}">
+               @else
+             <img class="img-profile rounded-circle" src="{{ asset('storage/users/default.jpg')}}">
+                @endif
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -220,10 +207,8 @@
 
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -236,10 +221,8 @@
 
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
@@ -263,7 +246,6 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-
         </div>
       </div>
     </div>

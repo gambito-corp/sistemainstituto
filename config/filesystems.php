@@ -57,19 +57,19 @@ return [
 
         'users' => [
             'driver' => 'local',
-            'root' => storage_path('app/users'),
+            'root' => storage_path('app/public/users'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
         'silabus' => [
             'driver' => 'local',
-            'root' => storage_path('app/silabus'),
+            'root' => storage_path('app/public/silabus'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
         'documentos' => [
             'driver' => 'local',
-            'root' => storage_path('app/docuemtos'),
+            'root' => storage_path('app/public/documentos'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
@@ -79,7 +79,6 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
